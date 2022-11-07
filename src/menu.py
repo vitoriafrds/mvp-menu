@@ -3,11 +3,11 @@ from service import ServiceONU
 
 def exibir():
     print(
-        '1 – Cadastrar mês de referência\n',
-        '2 – Exibir dados do mês de referência [pesquisa por mês]\n',
-        '3 – Relatório comparativo – Referência 2019\n',
-        '4 – Listar todos os meses cadastrados\n',
-        '5 - Sair\n'
+        '[1] – Cadastrar mês de referência',
+        '\n[2] – Exibir dados do mês de referência [pesquisa por mês]',
+        '\n[3] – Relatório comparativo – Referência 2019',
+        '\n[4] – Listar todos os meses cadastrados',
+        '\n[5]- Sair'
         )
 
 def capturar_opcao():
@@ -28,7 +28,8 @@ def executar():
             pass
         elif opcao == 2:
             mes_ano = str(input('Digite o mes-ano referencia que gostaria de consultar: '))
-            service.exibir_dados_mes_referencia(mes_ano)
+            dados = service.exibir_dados_mes_referencia(mes_ano)
+            print(dados)
             pass
         elif opcao == 3:
             ano = str(input('Digite o ano a ser comparado: '))
@@ -42,6 +43,7 @@ def executar():
         else:
             print('Opção invalida')
 
+        exibir()
         opcao = capturar_opcao()
     
 if __name__ == '__main__':
